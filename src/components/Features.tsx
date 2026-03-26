@@ -1,41 +1,41 @@
 import { Card } from "@/components/ui/card";
-import { Brain, TrendingUp, Users, Shield, FileBarChart, Lightbulb } from "lucide-react";
+import { Sparkles, Target, FileText, Zap, Shield, Download } from "lucide-react";
 
 const features = [
   {
-    icon: Brain,
-    title: "AI-Powered Predictions",
-    description: "Advanced machine learning algorithms analyze multiple factors to predict student performance with 85%+ accuracy.",
+    icon: Sparkles,
+    title: "AI-Powered Tailoring",
+    description: "Our AI analyzes the job description and rewrites your bullet points with the exact keywords recruiters are looking for.",
     gradient: "from-blue-500 to-cyan-500",
   },
   {
-    icon: TrendingUp,
-    title: "Performance Analytics",
-    description: "Visualize trends, compare metrics, and track progress with intuitive charts and comprehensive dashboards.",
+    icon: Target,
+    title: "ATS-Optimized Output",
+    description: "Resumes are structured to pass Applicant Tracking Systems with proper formatting, keywords, and section hierarchy.",
     gradient: "from-purple-500 to-pink-500",
   },
   {
-    icon: Users,
-    title: "At-Risk Identification",
-    description: "Automatically identify struggling students early with confidence scores and priority recommendations.",
+    icon: FileText,
+    title: "Professional Summary",
+    description: "Get a compelling 2-3 sentence summary automatically generated to match the target role and company.",
     gradient: "from-orange-500 to-red-500",
   },
   {
-    icon: FileBarChart,
-    title: "Bulk Data Processing",
-    description: "Upload CSV/Excel files to analyze entire classes instantly. Process hundreds of records in seconds.",
+    icon: Zap,
+    title: "Instant Results",
+    description: "No waiting around. Paste your JD and get your tailored resume in under 30 seconds.",
     gradient: "from-green-500 to-emerald-500",
   },
   {
-    icon: Lightbulb,
-    title: "Actionable Insights",
-    description: "Get personalized study plans, intervention strategies, and improvement recommendations for each student.",
+    icon: Shield,
+    title: "Privacy First",
+    description: "Your data is processed securely and never stored. We don't keep copies of your resume or personal information.",
     gradient: "from-yellow-500 to-orange-500",
   },
   {
-    icon: Shield,
-    title: "Privacy & Security",
-    description: "Bank-level encryption and FERPA compliance ensure student data remains confidential and protected.",
+    icon: Download,
+    title: "PDF Export",
+    description: "Download your finished resume as a clean, professional PDF ready to submit to any employer.",
     gradient: "from-indigo-500 to-blue-500",
   },
 ];
@@ -51,17 +51,17 @@ const Features = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
             Everything You Need to
             <span className="block bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              Transform Student Outcomes
+              Land More Interviews
             </span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Comprehensive tools designed for educators who want to make data-driven decisions and improve student success rates.
+            Stop sending generic resumes. Our AI tailors every detail to match what the hiring manager is looking for.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map((feature, index) => (
-            <Card 
+            <Card
               key={index}
               className="p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-border bg-card group cursor-pointer"
             >
