@@ -3,13 +3,60 @@ import { Badge } from "@/components/ui/badge";
 import { Mail, Phone } from "lucide-react";
 import type { ResumeData, TailoredResult } from "@/types/resume";
 
+export type ResumeTemplate = "modern" | "classic" | "minimal";
+
 interface ResumePreviewProps {
   data: ResumeData;
   tailored: TailoredResult | null;
+  template?: ResumeTemplate;
 }
 
+const templateStyles: Record<ResumeTemplate, {
+  container: string;
+  fontFamily: string;
+  headerClass: string;
+  nameClass: string;
+  sectionTitle: string;
+  bodyText: string;
+  bulletIcon: string;
+  badgeVariant: "secondary" | "outline" | "default";
+}> = {
+  modern: {
+    container: "bg-background p-8 max-w-[800px] mx-auto",
+    fontFamily: "'Inter', 'Segoe UI', sans-serif",
+    headerClass: "border-b-4 border-primary pb-4 mb-6",
+    nameClass: "text-3xl font-extrabold tracking-tight text-primary",
+    sectionTitle: "text-xs font-bold uppercase tracking-[0.2em] text-primary border-b-2 border-primary/30 pb-1 mb-3",
+    bodyText: "text-sm leading-relaxed text-foreground/85",
+    bulletIcon: "▸",
+    badgeVariant: "default",
+  },
+  classic: {
+    container: "bg-background p-8 max-w-[800px] mx-auto",
+    fontFamily: "'Georgia', 'Times New Roman', serif",
+    headerClass: "text-center border-b-2 border-foreground pb-4 mb-6",
+    nameClass: "text-2xl font-bold tracking-wide text-foreground uppercase",
+    sectionTitle: "text-sm font-bold uppercase tracking-widest text-foreground border-b border-border pb-1 mb-3",
+    bodyText: "text-sm leading-relaxed text-foreground/90",
+    bulletIcon: "•",
+    badgeVariant: "secondary",
+  },
+  minimal: {
+    container: "bg-background p-8 max-w-[800px] mx-auto",
+    fontFamily: "'Helvetica Neue', 'Arial', sans-serif",
+    headerClass: "pb-4 mb-6",
+    nameClass: "text-2xl font-light tracking-wide text-foreground",
+    sectionTitle: "text-xs font-medium uppercase tracking-[0.15em] text-muted-foreground mb-3",
+    bodyText: "text-sm leading-relaxed text-foreground/80",
+    bulletIcon: "–",
+    badgeVariant: "outline",
+  },
+};
+
 const ResumePreview = forwardRef<HTMLDivElement, ResumePreviewProps>(
-  ({ data, tailored }, ref) => {
+  ({ data, tailored, template = "classic" }, ref) => {
+    const styles = templateStyles[template];
+
     if (!tailored) {
       return (
         <div className="flex items-center justify-center h-full min-h-[400px] text-muted-foreground text-center p-8">
@@ -24,12 +71,12 @@ const ResumePreview = forwardRef<HTMLDivElement, ResumePreviewProps>(
     return (
       <div
         ref={ref}
-        className="bg-background p-8 max-w-[800px] mx-auto"
-        style={{ fontFamily: "'Georgia', 'Times New Roman', serif" }}
+        className={styles.container}
+        style={{ fontFamily: styles.fontFamily }}
       >
         {/* Header */}
-        <div className="text-center border-b-2 border-foreground pb-4 mb-6">
-          <h1 className="text-2xl font-bold tracking-wide text-foreground uppercase">
+        <div className={styles.headerClass}>
+          <h1 className={styles.nameClass}>
             {data.fullName || "Your Name"}
           </h1>
           <div className="flex items-center justify-center gap-4 mt-2 text-sm text-muted-foreground">
@@ -50,23 +97,17 @@ const ResumePreview = forwardRef<HTMLDivElement, ResumePreviewProps>(
 
         {/* Professional Summary */}
         <section className="mb-5">
-          <h2 className="text-sm font-bold uppercase tracking-widest text-foreground border-b border-border pb-1 mb-3">
-            Professional Summary
-          </h2>
-          <p className="text-sm leading-relaxed text-foreground/90">
-            {tailored.professionalSummary}
-          </p>
+          <h2 className={styles.sectionTitle}>Professional Summary</h2>
+          <p className={styles.bodyText}>{tailored.professionalSummary}</p>
         </section>
 
         {/* Experience */}
         <section className="mb-5">
-          <h2 className="text-sm font-bold uppercase tracking-widest text-foreground border-b border-border pb-1 mb-3">
-            Experience
-          </h2>
+          <h2 className={styles.sectionTitle}>Experience</h2>
           <ul className="space-y-1.5">
             {tailored.optimizedBulletPoints.map((point, i) => (
-              <li key={i} className="text-sm leading-relaxed text-foreground/90 flex gap-2">
-                <span className="text-foreground mt-0.5">•</span>
+              <li key={i} className={`${styles.bodyText} flex gap-2`}>
+                <span className="text-foreground mt-0.5">{styles.bulletIcon}</span>
                 <span>{point}</span>
               </li>
             ))}
@@ -75,22 +116,16 @@ const ResumePreview = forwardRef<HTMLDivElement, ResumePreviewProps>(
 
         {/* Education */}
         <section className="mb-5">
-          <h2 className="text-sm font-bold uppercase tracking-widest text-foreground border-b border-border pb-1 mb-3">
-            Education
-          </h2>
-          <p className="text-sm leading-relaxed text-foreground/90 whitespace-pre-line">
-            {data.education}
-          </p>
+          <h2 className={styles.sectionTitle}>Education</h2>
+          <p className={`${styles.bodyText} whitespace-pre-line`}>{data.education}</p>
         </section>
 
         {/* Skills */}
         <section>
-          <h2 className="text-sm font-bold uppercase tracking-widest text-foreground border-b border-border pb-1 mb-3">
-            Skills
-          </h2>
+          <h2 className={styles.sectionTitle}>Skills</h2>
           <div className="flex flex-wrap gap-1.5">
             {tailored.suggestedSkills.map((skill, i) => (
-              <Badge key={i} variant="secondary" className="text-xs font-normal">
+              <Badge key={i} variant={styles.badgeVariant} className="text-xs font-normal">
                 {skill}
               </Badge>
             ))}

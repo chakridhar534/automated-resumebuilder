@@ -6,8 +6,9 @@ import { useToast } from "@/hooks/use-toast";
 import { ArrowLeft, Download } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import ResumeForm from "@/components/resume/ResumeForm";
-import ResumePreview from "@/components/resume/ResumePreview";
+import ResumePreview, { type ResumeTemplate } from "@/components/resume/ResumePreview";
 import type { ResumeData, TailoredResult } from "@/types/resume";
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
 const Builder = () => {
   const [isLoading, setIsLoading] = useState(false);
