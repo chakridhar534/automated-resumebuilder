@@ -6,13 +6,15 @@ import { useToast } from "@/hooks/use-toast";
 import { ArrowLeft, Download } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import ResumeForm from "@/components/resume/ResumeForm";
-import ResumePreview from "@/components/resume/ResumePreview";
+import ResumePreview, { type ResumeTemplate } from "@/components/resume/ResumePreview";
 import type { ResumeData, TailoredResult } from "@/types/resume";
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
 const Builder = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [resumeData, setResumeData] = useState<ResumeData | null>(null);
   const [tailored, setTailored] = useState<TailoredResult | null>(null);
+  const [template, setTemplate] = useState<ResumeTemplate>("modern");
   const previewRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
 
@@ -136,11 +138,28 @@ const Builder = () => {
                 </p>
               </div>
             </div>
+
+            {/* Template Selector */}
+            <div className="flex items-center gap-3">
+              <span className="text-sm font-medium text-muted-foreground">Template:</span>
+              <ToggleGroup
+                type="single"
+                value={template}
+                onValueChange={(v) => v && setTemplate(v as ResumeTemplate)}
+                size="sm"
+              >
+                <ToggleGroupItem value="modern" className="text-xs">Modern</ToggleGroupItem>
+                <ToggleGroupItem value="classic" className="text-xs">Classic</ToggleGroupItem>
+                <ToggleGroupItem value="minimal" className="text-xs">Minimal</ToggleGroupItem>
+              </ToggleGroup>
+            </div>
+
             <Card className="overflow-hidden">
               <ResumePreview
                 ref={previewRef}
                 data={resumeData || { fullName: "", email: "", phone: "", experience: "", education: "", skills: "", jobDescription: "" }}
                 tailored={tailored}
+                template={template}
               />
             </Card>
           </div>
