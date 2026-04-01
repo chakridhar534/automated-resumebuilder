@@ -138,11 +138,28 @@ const Builder = () => {
                 </p>
               </div>
             </div>
+
+            {/* Template Selector */}
+            <div className="flex items-center gap-3">
+              <span className="text-sm font-medium text-muted-foreground">Template:</span>
+              <ToggleGroup
+                type="single"
+                value={template}
+                onValueChange={(v) => v && setTemplate(v as ResumeTemplate)}
+                size="sm"
+              >
+                <ToggleGroupItem value="modern" className="text-xs">Modern</ToggleGroupItem>
+                <ToggleGroupItem value="classic" className="text-xs">Classic</ToggleGroupItem>
+                <ToggleGroupItem value="minimal" className="text-xs">Minimal</ToggleGroupItem>
+              </ToggleGroup>
+            </div>
+
             <Card className="overflow-hidden">
               <ResumePreview
                 ref={previewRef}
                 data={resumeData || { fullName: "", email: "", phone: "", experience: "", education: "", skills: "", jobDescription: "" }}
                 tailored={tailored}
+                template={template}
               />
             </Card>
           </div>
