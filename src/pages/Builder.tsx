@@ -157,7 +157,7 @@ const Builder = () => {
             <Card className="overflow-hidden">
               <ResumePreview
                 ref={previewRef}
-                data={resumeData || { fullName: "", email: "", phone: "", experience: "", education: "", skills: "", jobDescription: "" }}
+                data={resumeData || { experience: "", education: "", skills: "", jobDescription: "" }}
                 tailored={tailored}
                 template={template}
               />
