@@ -82,7 +82,7 @@ const Builder = () => {
       const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
 
       pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
-      pdf.save(`${resumeData?.fullName || "resume"}_tailored.pdf`);
+      pdf.save("tailored_resume.pdf");
 
       toast({ title: "PDF downloaded!", description: "Your resume has been saved." });
     } catch {
@@ -157,7 +157,7 @@ const Builder = () => {
             <Card className="overflow-hidden">
               <ResumePreview
                 ref={previewRef}
-                data={resumeData || { fullName: "", email: "", phone: "", experience: "", education: "", skills: "", jobDescription: "" }}
+                data={resumeData || { experience: "", education: "", skills: "", jobDescription: "" }}
                 tailored={tailored}
                 template={template}
               />

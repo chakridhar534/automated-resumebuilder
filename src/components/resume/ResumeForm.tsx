@@ -1,10 +1,8 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Loader2, Sparkles, User, Briefcase, GraduationCap, Wrench, FileText } from "lucide-react";
+import { Loader2, Sparkles, Briefcase, GraduationCap, Wrench, FileText } from "lucide-react";
 import type { ResumeData } from "@/types/resume";
 
 interface ResumeFormProps {
@@ -14,9 +12,6 @@ interface ResumeFormProps {
 
 const ResumeForm = ({ onSubmit, isLoading }: ResumeFormProps) => {
   const [formData, setFormData] = useState<ResumeData>({
-    fullName: "",
-    email: "",
-    phone: "",
     experience: "",
     education: "",
     skills: "",
@@ -33,50 +28,6 @@ const ResumeForm = ({ onSubmit, isLoading }: ResumeFormProps) => {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      {/* Personal Info */}
-      <Card>
-        <CardHeader className="pb-4">
-          <CardTitle className="flex items-center gap-2 text-lg">
-            <User className="h-5 w-5 text-primary" />
-            Personal Information
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div>
-            <Label htmlFor="fullName">Full Name</Label>
-            <Input
-              id="fullName"
-              placeholder="John Doe"
-              value={formData.fullName}
-              onChange={(e) => update("fullName", e.target.value)}
-              required
-            />
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <Label htmlFor="email">Email</Label>
-              <Input
-                id="email"
-                type="email"
-                placeholder="john@example.com"
-                value={formData.email}
-                onChange={(e) => update("email", e.target.value)}
-                required
-              />
-            </div>
-            <div>
-              <Label htmlFor="phone">Phone</Label>
-              <Input
-                id="phone"
-                placeholder="+1 (555) 123-4567"
-                value={formData.phone}
-                onChange={(e) => update("phone", e.target.value)}
-              />
-            </div>
-          </div>
-        </CardContent>
-      </Card>
-
       {/* Experience */}
       <Card>
         <CardHeader className="pb-4">

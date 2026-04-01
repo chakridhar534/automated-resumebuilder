@@ -1,6 +1,5 @@
 import { forwardRef } from "react";
 import { Badge } from "@/components/ui/badge";
-import { Mail, Phone } from "lucide-react";
 import type { ResumeData, TailoredResult } from "@/types/resume";
 
 export type ResumeTemplate = "modern" | "classic" | "minimal";
@@ -76,23 +75,7 @@ const ResumePreview = forwardRef<HTMLDivElement, ResumePreviewProps>(
       >
         {/* Header */}
         <div className={styles.headerClass}>
-          <h1 className={styles.nameClass}>
-            {data.fullName || "Your Name"}
-          </h1>
-          <div className="flex items-center justify-center gap-4 mt-2 text-sm text-muted-foreground">
-            {data.email && (
-              <span className="flex items-center gap-1">
-                <Mail className="h-3 w-3" />
-                {data.email}
-              </span>
-            )}
-            {data.phone && (
-              <span className="flex items-center gap-1">
-                <Phone className="h-3 w-3" />
-                {data.phone}
-              </span>
-            )}
-          </div>
+          <h1 className={styles.nameClass}>Resume</h1>
         </div>
 
         {/* Professional Summary */}

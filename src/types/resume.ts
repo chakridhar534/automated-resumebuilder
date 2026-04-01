@@ -1,7 +1,4 @@
 export interface ResumeData {
-  fullName: string;
-  email: string;
-  phone: string;
   experience: string;
   education: string;
   skills: string;
