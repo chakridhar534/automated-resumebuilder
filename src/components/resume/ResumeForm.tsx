@@ -14,9 +14,6 @@ interface ResumeFormProps {
 
 const ResumeForm = ({ onSubmit, isLoading }: ResumeFormProps) => {
   const [formData, setFormData] = useState<ResumeData>({
-    fullName: "",
-    email: "",
-    phone: "",
     experience: "",
     education: "",
     skills: "",
