@@ -14,6 +14,7 @@ const Builder = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [resumeData, setResumeData] = useState<ResumeData | null>(null);
   const [tailored, setTailored] = useState<TailoredResult | null>(null);
+  const [template, setTemplate] = useState<ResumeTemplate>("modern");
   const previewRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
 
