@@ -1,6 +1,5 @@
 import { forwardRef } from "react";
 import { Badge } from "@/components/ui/badge";
-import { Mail, Phone } from "lucide-react";
 import type { ResumeData, TailoredResult } from "@/types/resume";
 
 export type ResumeTemplate = "modern" | "classic" | "minimal";
