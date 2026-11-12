@@ -1,73 +1,111 @@
-# Welcome to your Lovable project
+# Automated Resume Builder Tailored for Jobs and  Roles
 
-## Project info
+Project Name: Student Performance Predictor
 
-**URL**: https://lovable.dev/projects/05b29ebc-ed10-44d3-af86-b4eba2f4d2b2
+Objective:
+Develop a web-based platform that predicts student academic performance using machine learning algorithms. The system should help educators and students identify performance trends and provide actionable insights for improvement.
 
-## How can I edit this code?
+Target Users:
 
-There are several ways of editing your application.
+School/College Teachers
 
-**Use Lovable**
+Students
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/05b29ebc-ed10-44d3-af86-b4eba2f4d2b2) and start prompting.
+Academic Administrators
 
-Changes made via Lovable will be committed automatically to this repo.
+Educational Researchers
 
-**Use your preferred IDE**
+Key Features:
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Student Data Input:
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Form for inputting student data (e.g., hours studied, attendance, demographic info, previous grades).
 
-Follow these steps:
+CSV/Excel bulk upload support.
+
+Machine Learning Prediction Module:
+
+Use algorithms such as KNN, Decision Tree, Random Forest, or Naive Bayes.
+
+Predict performance (Pass/Fail or Grade prediction).
+
+Provide confidence scores for predictions.
+
+Visualization & Analytics:
+
+Display performance trends via graphs and charts.
+
+Compare individual student performance with class averages.
+
+Highlight at-risk students.
+
+Dashboard:
+
+Overview of class performance.
+
+Filter and sort by subjects, grades, or attendance.
+
+Downloadable reports.
+
+Recommendations Module:
+
+Suggest study plans or improvement tips for students at risk.
+
+Highlight areas needing attention based on historical data.
+
+Security & Privacy:
+
+User authentication (teachers/admins).
+
+Ensure student data privacy (GDPR/FERPA compliance).
+
+Technical Requirements:
+
+Frontend: React.js / HTML-CSS-JS
+
+Backend: Python (Flask/Django) or Node.js
+
+Machine Learning: scikit-learn / TensorFlow / PyTorch
+
+Database: MySQL / PostgreSQL / MongoDB
+
+Hosting: AWS / Heroku / Vercel
+
+Success Metrics:
+
+Prediction accuracy ≥ 80%
+
+User-friendly interface with <3 clicks to generate a report
+
+Positive feedback from educators/students on insights provided
+
+Optional Enhancements:
+
+Integration with school’s existing LMS
+
+Real-time updates with ongoing student performance data
+
+Mobile-friendly interface
+
+This project was built with [Lovable](https://lovable.dev).
+
+**Live app**: https://automated-resumebuilder.lovable.app
+
+## Build with Lovable
+
+Continue developing this project in the [Lovable editor](https://lovable.dev/projects/9e62def7-2d4d-498e-9d85-f930dd0e3db0).
+
+- **Ship faster**: describe what you want to build and Lovable handles the code.
+- **Stay in sync**: every change made in Lovable is committed straight to this repository.
+- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+
+## Development
+
+Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
+git clone <this-repository-url>
+cd <repository-name>
 npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
 npm run dev
 ```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/05b29ebc-ed10-44d3-af86-b4eba2f4d2b2) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
